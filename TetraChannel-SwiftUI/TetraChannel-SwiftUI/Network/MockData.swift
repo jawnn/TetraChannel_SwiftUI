@@ -18,7 +18,7 @@ extension MockData {
 // MARK: Newsfeed
 extension MockData {
     static let newsfeed: [NewsArticle] = [
-        NewsArticle(id: "653f0f27df8c3df6ac68b51c", type: "leaderboard", stream: "global", publishDate: "2023-09-27T02:44:12.801Z", data: NewsData(username: "rtxile", gameType: "blitz", rank: 1, result: 1919248, replayId: "mKwlctVoc", type: nil, label: nil))
+        NewsArticle(id: "653f0f27df8c3df6ac68b51c", type: "leaderboard", stream: "global", publishDate: "2023-09-27T02:44:12.801Z", data: NewsData(username: "rtxile", gameType: "blitz", rank: Rank.int(1), result: 1919248, replayId: "mKwlctVoc", type: "leaderboard", label: "lol"))
     ]
 }
 

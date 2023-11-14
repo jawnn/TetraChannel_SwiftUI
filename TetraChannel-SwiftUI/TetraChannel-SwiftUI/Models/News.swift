@@ -10,12 +10,23 @@ import Foundation
 enum GameType: String {
     case fortyLine = "40l"
     case blitz = "blitz"
+
+    var name: String {
+        switch self {
+        case .fortyLine:
+            return "40L"
+        case .blitz:
+            return "Blitz"
+        }
+    }
 }
 
 enum NewsArticleType: String {
     case badge = "badge"
     case leaderboard = "leaderboard"
     case personalBest = "personalbest"
+    case rankUp = "rankup"
+    case none = "none"
 }
 
 struct NewsResponse: Codable {
