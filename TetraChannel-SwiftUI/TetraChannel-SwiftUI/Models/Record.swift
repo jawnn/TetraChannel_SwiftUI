@@ -133,7 +133,7 @@ struct Clears: Codable {
 struct Garbage: Codable {
     let sent: Int
     let received: Int
-    let attack: Int
+    let attack: Int?
     let cleared: Int
 }
 

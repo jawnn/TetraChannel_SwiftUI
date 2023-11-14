@@ -29,56 +29,69 @@ struct NewsArticle: Codable, Identifiable {
     let publishDate: String
     let data: NewsData
 
+    var timeElapsed: String {
+        return publishDate.timeElapsedSince()
+    }
+
+    var articleType: NewsArticleType {
+        return NewsArticleType(rawValue: type) ?? .none
+    }
+
+    var badgeTitle: String {
+        return data.label ?? "noname"
+    }
+
+    var numberRank: Int {
+        guard let rank = data.rank?.value as? Int else {
+            return -1
+        }
+        return rank
+    }
+
+    var letterRank: String {
+        guard let rank = data.rank?.value as? String else {
+            return "-1"
+        }
+        return rank
+    }
+
+    var gameType: GameType {
+        guard let type = data.gameType else {
+            return .fortyLine
+        }
+        return GameType(rawValue: type) ?? .fortyLine
+    }
+
+    var result: Float {
+        return data.result ?? 0.0
+    }
+
     private enum CodingKeys: String, CodingKey {
         case id = "_id"
         case publishDate = "ts"
         case type, stream, data
     }
 
-    func generateHeadline() -> String {
-        guard let articleType = NewsArticleType(rawValue: type),
-              let username = data.username else {
-            return ""
+}
+
+enum Rank: Codable {
+    case int(Int)
+    case string(String)
+
+    var value: Any {
+        switch self {
+        case .int(let value):
+            return value
+        case .string(let value):
+            return value
         }
-
-        switch articleType {
-        case .personalBest:
-            if let gameType = data.gameType, let result = data.result {
-                switch GameType(rawValue: gameType) {
-                case .fortyLine:
-                    return " got a new personal best in \(gameType.uppercased()) with a time of \(result.raceTime())"
-                case .blitz:
-                    return " got a new personal best in \(gameType.uppercased()) with a score of \(result.formatted())"
-                default:
-                    return ""
-                }
-            }
-        case .leaderboard:
-            if let gameType = data.gameType, let rank = data.rank, let result = data.result {
-                switch GameType(rawValue: gameType) {
-                case .fortyLine:
-                    return " earned #\(rank) in \(gameType.uppercased()) with a time of \(result.raceTime())"
-                case .blitz:
-                    return " earned #\(rank) in \(gameType.uppercased()) with a score of \(result.formatted())"
-                default:
-                    return ""
-                }
-            }
-        case .badge:
-            if let badgeTitle = data.label {
-                return "\(username) earned the \(badgeTitle) badge."
-            }
-
-        }
-
-        return ""
     }
 }
 
 struct NewsData: Codable {
     let username: String?
     let gameType: String?
-    let rank: Int?
+    let rank: Rank?
     let result: Float?
     let replayId: String?
     let type: String?
@@ -88,5 +101,35 @@ struct NewsData: Codable {
         case username, rank, result, type, label
         case gameType = "gametype"
         case replayId = "replayid"
+    }
+
+    init(username: String, gameType: String, rank: Rank, result: Float, replayId: String, type: String, label: String) {
+        self.username = username
+        self.gameType = gameType
+        self.rank = rank
+        self.result = result
+        self.replayId = replayId
+        self.type = type
+        self.label = label
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        self.username = try? container.decode(String.self, forKey: .username)
+        self.gameType = try? container.decode(String.self, forKey: .gameType)
+
+        if let value = try? container.decodeIfPresent(Int.self, forKey: .rank) {
+            self.rank = .int(value)
+        } else if let value = try? container.decodeIfPresent(String.self, forKey: .rank) {
+            self.rank = .string(value)
+        } else {
+            self.rank = nil
+        }
+
+        self.result = try? container.decode(Float.self, forKey: .result)
+        self.replayId = try? container.decode(String.self, forKey: .replayId)
+        self.type = try? container.decode(String.self, forKey: .type)
+        self.label = try? container.decode(String.self, forKey: .label)
     }
 }
