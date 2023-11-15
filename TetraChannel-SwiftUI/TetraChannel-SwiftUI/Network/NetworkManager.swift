@@ -61,7 +61,7 @@ final class NetworkManager {
     }
 
     func getPlayerNewsfeed(with userId: String) async throws -> [NewsArticle] {
-        guard let url = URL(string: newsfeedURL + "user_\(userId)" + "?limit=5") else {
+        guard let url = URL(string: newsfeedURL + "user_\(userId)" + "?limit=3") else {
             throw URLError(.badURL)
         }
 
