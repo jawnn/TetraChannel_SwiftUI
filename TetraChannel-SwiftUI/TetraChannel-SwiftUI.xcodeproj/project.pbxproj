@@ -17,6 +17,7 @@
 		D227D46B2AF051F600790B6C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D227D46A2AF051F600790B6C /* LoadingView.swift */; };
 		D227D46D2AF16D0000790B6C /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D227D46C2AF16CFF00790B6C /* Leaderboard.swift */; };
 		D227D4712AF16D4600790B6C /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D227D4702AF16D4600790B6C /* Player.swift */; };
+		D24F3E4B2B0438CF000C7CFE /* LeagueStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24F3E4A2B0438CF000C7CFE /* LeagueStatsView.swift */; };
 		D25556EB2AEC6E00004496FD /* TetraChannel_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25556EA2AEC6E00004496FD /* TetraChannel_SwiftUIApp.swift */; };
 		D25556ED2AEC6E00004496FD /* TetraChannelTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25556EC2AEC6E00004496FD /* TetraChannelTabView.swift */; };
 		D25556EF2AEC6E05004496FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D25556EE2AEC6E05004496FD /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		D227D46A2AF051F600790B6C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		D227D46C2AF16CFF00790B6C /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
 		D227D4702AF16D4600790B6C /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		D24F3E4A2B0438CF000C7CFE /* LeagueStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueStatsView.swift; sourceTree = "<group>"; };
 		D25556E72AEC6E00004496FD /* TetraChannel-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TetraChannel-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25556EA2AEC6E00004496FD /* TetraChannel_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetraChannel_SwiftUIApp.swift; sourceTree = "<group>"; };
 		D25556EC2AEC6E00004496FD /* TetraChannelTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetraChannelTabView.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				D29B8F772AFC0B08001047D1 /* PersonalBestView.swift */,
+				D24F3E4A2B0438CF000C7CFE /* LeagueStatsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				D29B8F722AFC0057001047D1 /* HorizontalDivider.swift in Sources */,
 				D25557092AEC7262004496FD /* MetaData.swift in Sources */,
 				D2C036092AF32081004737B3 /* XpLeaderboardListCell.swift in Sources */,
+				D24F3E4B2B0438CF000C7CFE /* LeagueStatsView.swift in Sources */,
 				D2922F5E2AF4241400DEF21C /* CustomModifiers.swift in Sources */,
 				D227D46B2AF051F600790B6C /* LoadingView.swift in Sources */,
 				D2210A772AF182B100F783B4 /* LeaderboardViewModel.swift in Sources */,
