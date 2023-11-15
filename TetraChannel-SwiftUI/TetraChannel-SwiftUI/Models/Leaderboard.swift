@@ -66,22 +66,51 @@ struct League: Codable {
     let rating: Float
     let glicko: Float?
     let rd: Float?
-    let rank: String
+    let letterRank: String
     let bestRank: String?
     let apm: Float?
     let pps: Float?
     let vs: Float?
     let decaying: Bool
 
-    let standing: Int?
-    let percentile: Float?
-    let localStanding: Int?
+    let standing: Int
+    let percentile: Float
+    let localStanding: Int
+
+    var gamesLoss: String {
+        let ratio = gamesPlayed - gamesWon
+        return ratio.formatted()
+    }
+
+    var winPercentage: String {
+        let percentage = (Float(gamesWon) / Float(gamesPlayed)) * 100
+        return percentage.toString(decimalDigits: 2)
+    }
+
+    var ranking: String {
+        return standing.formatted()
+    }
+
+    var localRanking: String {
+        return localStanding.formatted()
+    }
+
+    var percentileRank: String {
+        let percent = percentile * 100
+        return percent.toString(decimalDigits: 2)
+    }
+
+    var topPercentile: String {
+        let percent = 100 - (percentile * 100)
+        return percent.toString(decimalDigits: 0)
+    }
 
     private enum CodingKeys: String, CodingKey {
         case gamesPlayed = "gamesplayed"
         case gamesWon = "gameswon"
         case bestRank = "bestrank"
-        case rating, glicko, rd, rank, apm, pps, vs, decaying
+        case letterRank = "rank"
+        case rating, glicko, rd, apm, pps, vs, decaying
         case localStanding = "standing_local"
         case standing, percentile
     }
