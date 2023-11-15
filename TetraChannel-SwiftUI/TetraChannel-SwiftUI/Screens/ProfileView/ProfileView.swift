@@ -42,6 +42,10 @@ struct ProfileView: View {
                         }
                     }
 
+                    Section("Tetra League") {
+                        LeagueStatsView(leagueStats: viewModel.leagueStats)
+                    }
+
                     Section("40 Lines") {
                         if let fortyLineRecord = viewModel.fortyLineRecord.record {
                             PersonalBestView(record: fortyLineRecord)

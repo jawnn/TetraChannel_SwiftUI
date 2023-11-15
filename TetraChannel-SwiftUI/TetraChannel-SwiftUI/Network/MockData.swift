@@ -32,7 +32,7 @@ extension MockData {
 
     static let leaguePlayer2 = LeagueRankedPlayer(id: "2", username: "League 2", role: "user", xp: 888, supporter: true, verified: true, league: MockData.league)
 
-    static let league = League(gamesPlayed: 100, gamesWon: 44, rating: 999, glicko: 1200, rd: 2, rank: "X", bestRank: "X", apm: 200, pps: 300, vs: 2, decaying: true, standing: 222, percentile: 0.004616670148318363, localStanding: 2)
+    static let league = League(gamesPlayed: 100, gamesWon: 44, rating: 999, glicko: 1200, rd: 2, letterRank: "X", bestRank: "X", apm: 200, pps: 300, vs: 2, decaying: true, standing: 222, percentile: 0.004616670148318363, localStanding: 2)
 
     static let xpLeaderboard: [XpRankedPlayer] = [ MockData.xpPlayer1, MockData.xpPlayer2]
 

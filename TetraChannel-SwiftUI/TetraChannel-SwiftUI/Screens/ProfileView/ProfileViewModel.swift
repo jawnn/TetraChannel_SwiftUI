@@ -10,11 +10,12 @@ import SwiftUI
 
 @MainActor
 final class ProfileViewModel: ObservableObject {
-    @Published var profile: Profile = MockData.profile
-    @Published var fortyLineRecord: RecordEntry = MockData.fortyLineRecordEntry
-    @Published var blitzRecord: RecordEntry = MockData.fortyLineRecordEntry
-    @Published var newsfeed: [NewsArticle] = []
     @Published var isLoading: Bool = true
+    @Published var newsfeed: [NewsArticle] = []
+    @Published var profile: Profile = MockData.profile
+    @Published var leagueStats: League = MockData.league
+    @Published var blitzRecord: RecordEntry = MockData.fortyLineRecordEntry
+    @Published var fortyLineRecord: RecordEntry = MockData.fortyLineRecordEntry
 
     var recordLog: RecordLog? = nil
     let dispatchGroup = DispatchGroup()
@@ -48,6 +49,7 @@ final class ProfileViewModel: ObservableObject {
         Task {
             do {
                 profile = try await NetworkManager.shared.getProfile(with: profile.username)
+                leagueStats = profile.leagueStats
                 self.dispatchGroup.leave()
             } catch {
                 print(error)

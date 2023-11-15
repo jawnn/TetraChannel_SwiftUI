@@ -28,7 +28,7 @@ struct LeagueLeaderboardListCell: View {
             Text("\(player.league.gamesWon)")
                 .frame(alignment: .leading)
                 .foregroundColor(.secondary)
-            Text("(\(player.winPercentage.toString(decimalDigits: 2))%)")
+            Text("(\(player.league.winPercentage)%)")
 
             Spacer()
 

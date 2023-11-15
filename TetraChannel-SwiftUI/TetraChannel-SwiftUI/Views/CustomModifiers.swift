@@ -48,7 +48,7 @@ struct BorderedCaption: ViewModifier {
                 RoundedRectangle(cornerRadius: 15)
                     .stroke(lineWidth: 1)
             )
-            .foregroundColor(Color.brandPrimary)
+            .foregroundColor(Color.brandInverse)
     }
 }
 
