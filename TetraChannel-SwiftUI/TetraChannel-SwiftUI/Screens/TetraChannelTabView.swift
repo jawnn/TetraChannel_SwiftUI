@@ -8,19 +8,15 @@
 import SwiftUI
 
 struct TetraChannelTabView: View {
+    @State private var selection: AppScreen = .home
+
     var body: some View {
-        TabView {
-            HomeView()
-                .tabItem({ Label("Home", systemImage: "house") })
-
-            LeaderboardView()
-                .tabItem({ Label("Leaderboard", systemImage: "bag") })
-
-            ProfileView()
-                .tabItem({ Label("Profile", systemImage: "person")})
-        }
-        .task {
-            
+        TabView(selection: $selection) {
+            ForEach(AppScreen.allCases) { screen in
+                screen.destination
+                    .tag(screen as AppScreen?)
+                    .tabItem { screen.label }
+            }
         }
     }
 }
