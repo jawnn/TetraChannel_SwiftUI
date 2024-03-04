@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-@MainActor final class HomeViewModel: ObservableObject {
+@MainActor
+final class HomeViewModel: ObservableObject {
 
     @Published var serverInfo = MockData.serverInfo
     @Published var newsfeed = MockData.newsfeed

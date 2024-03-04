@@ -88,11 +88,11 @@ struct League: Codable {
     }
 
     var ranking: String {
-        return standing.formatted()
+        return standing == -1 ? "not ranked" : "#\(standing.formatted())"
     }
 
     var localRanking: String {
-        return localStanding.formatted()
+        return localStanding == -1 ? "not ranked" : "#\(localStanding.formatted())"
     }
 
     var percentileRank: String {

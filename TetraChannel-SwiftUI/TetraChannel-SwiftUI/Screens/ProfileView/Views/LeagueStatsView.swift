@@ -19,9 +19,9 @@ struct LeagueStatsView: View {
                     VerticalDataCell(header: "Rating", data: leagueStats.rating.toString(decimalDigits: 2))
                         .modifier(BorderedCaption())
                     Spacer()
-                    VerticalDataCell(header: "Global", data: "#\(leagueStats.ranking)")
+                    VerticalDataCell(header: "Global", data: "\(leagueStats.ranking)")
                         .modifier(BorderedCaption())
-                    VerticalDataCell(header: "Region", data: "#\(leagueStats.localRanking)")
+                    VerticalDataCell(header: "Region", data: "\(leagueStats.localRanking)")
                         .modifier(BorderedCaption())
                 }
                 .frame(height: 50)

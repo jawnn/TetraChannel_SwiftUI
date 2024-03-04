@@ -170,8 +170,8 @@
 		D25556F92AEC6E93004496FD /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				D255570A2AEC74D6004496FD /* HomeViewModel.swift */,
 				D25556FC2AEC6F00004496FD /* HomeView.swift */,
+				D255570A2AEC74D6004496FD /* HomeViewModel.swift */,
 				D2210A7C2AF2FF4A00F783B4 /* Views */,
 			);
 			path = HomeView;
