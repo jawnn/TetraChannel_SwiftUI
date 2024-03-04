@@ -41,7 +41,7 @@ final class NetworkManager {
     }
 
     func getNewsfeed() async throws -> [NewsArticle] {
-        guard let url = URL(string: newsfeedURL + "global") else {
+        guard let url = URL(string: newsfeedURL + "global" + "?limit=10") else {
             throw URLError(.badURL)
         }
 

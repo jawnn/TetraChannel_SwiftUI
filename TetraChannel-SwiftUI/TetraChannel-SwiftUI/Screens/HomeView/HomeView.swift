@@ -1,10 +1,3 @@
-    //
-    //  HomeView.swift
-    //  TetraChannel-SwiftUI
-    //
-    //  Created by Roberto Manese III on 10/27/23.
-    //
-
 import SwiftUI
 
 struct HomeView: View {
